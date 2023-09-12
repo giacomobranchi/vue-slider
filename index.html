@@ -17,36 +17,23 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img src="img/01.webp" alt="Spiderman" />
+                    <img :src="slides[active].image" :alt="slides[active].title" />
                     <div class="text">
-                        <h3>Spiderman</h3>
+                        <h3>{{slides[active].title}}</h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
+                            {{slides[active].text}}
                         </p>
                     </div>
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <div class="thumb active">
-                        <img src="./assets/img/01.webp" alt="Svezia" />
+                    <div class="prev" @click="prev()"></div>
+                    <div class="next" @click="next()"></div>
+                    <div v-for="slide in slides"
+                        :class="[slides[active].title == slide.title ? activeClass : '', thumb]">
+                        <img :src="slide.image" :alt="slide.title" />
                     </div>
-                    <div class="thumb">
-                        <img src="./assets/img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="./assets/img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="./assets/img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="./assets/img/05.webp" alt="Avengers" />
-                    </div>
+
                 </div>
 
             </div>
