@@ -10,6 +10,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            hover: true,
             timer: '',
             thumb: 'thumb',
             active: 0,
@@ -64,7 +65,9 @@ createApp({
         },
         autoTimer() {
             this.timer = setInterval(() => {
-                this.next();
+                if (this.hover) {
+                    this.next();
+                }
                 this.autoTimer;
             }, 3000);
         }
