@@ -51,6 +51,15 @@ createApp({
             if (this.active < 0) {
                 this.active = this.slides.length - 1
             }
+        },
+        select(el) {
+            el = el.target;
+            for (let i = 0; i < this.slides.length; i++) {
+                const element = this.slides[i];
+                if (element.image == el.getAttribute('src')) {
+                    this.active = i;
+                }
+            }
         }
     }
 
