@@ -10,6 +10,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            timer: '',
             thumb: 'thumb',
             active: 0,
             activeClass: 'active',
@@ -60,8 +61,16 @@ createApp({
                     this.active = i;
                 }
             }
+        },
+        autoTimer() {
+            this.timer = setInterval(() => {
+                this.next();
+                this.autoTimer;
+            }, 3000);
         }
+    },
+    mounted() {
+        this.autoTimer();
     }
-
 }).mount('#app')
 
